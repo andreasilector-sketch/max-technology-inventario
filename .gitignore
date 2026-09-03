@@ -1,0 +1,7 @@
+# Temporary Excel and system files
+~$*
+Thumbs.db
+.DS_Store
+
+# Provisional files
+INVENTARIO EXISTENCIAS (PROVISIONAL).xlsx
