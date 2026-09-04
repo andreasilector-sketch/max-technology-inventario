@@ -50,7 +50,7 @@
     "precio_facebook": 330000,
     "utilidad_directa": 198707.0,
     "margen_real_directo": 0.6021424242424243,
-    "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *LECTOR ESCÁNER DE CÓDIGO DE BARRAS ZEBRA DS9208 DIGITAL 1D Y 2D MANOS LIBRES USB – COTIZACIÓN*\n\n• Lector digital de alta velocidad manos libres para puntos de venta, supermercados y farmacias. Lee códigos de barras tradicionales (1D) y códigos QR / 2D tanto impresos en papel como directamente desde la pantalla del celular. Conexión USB inmediata plug & play.\n\n• *Estado:* Equipo remanufacturado en perfecto estado estético, 100% probado en mostrador.\n• *Garantía:* 3 Meses de Garantía\n• *Referencia / Modelo:* DS9208-SR4NNU21Z\n\n💰 *Precio en efectivo o transferencia:* $330.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $636.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
+    "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *LECTOR ESCÁNER DE CÓDIGO DE BARRAS ZEBRA DS9208 DIGITAL 1D Y 2D MANOS LIBRES USB – COTIZACIÓN*\n\n• Lector digital de alta velocidad manos libres para puntos de venta, supermercados y farmacias. Lee códigos de barras tradicionales (1D) y códigos QR / 2D tanto impresos en papel como directamente desde la pantalla del celular. Conexión USB inmediata plug & play.\n\n• *Estado:* Equipo remanufacturado / usado (ensayado y funcional).\n• *Garantía:* 3 Meses de Garantía\n• *Referencia / Modelo:* DS9208-SR4NNU21Z\n\n💰 *Precio en efectivo o transferencia:* $330.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $636.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
     "disponibilidad": "🟢 En Stock"
   },
   {
@@ -1547,12 +1547,12 @@
   },
   {
     "sku": "MTS-0057",
-    "name": "Memoria Ddr4 8gb 2400t Samsung Portatil",
-    "category": "",
+    "name": "Memoria RAM Samsung 8GB DDR4 2400MHz SODIMM para Portátil (PC4-2400T)",
+    "category": "Almacenamiento y Memorias",
     "brand": "Samsung",
-    "part_number": "",
-    "barcode": "",
-    "color": "",
+    "part_number": "M471A1K43CB1-CRC",
+    "barcode": "Sin código",
+    "color": "Verde",
     "estado": "REMANUFACTURADO",
     "costo_total_unitario": 180000,
     "margen_whatsapp": 0.2,
@@ -1560,15 +1560,16 @@
     "comision_mercadolibre": 0.16,
     "stock_actual": 1,
     "ubicacion": "Taller",
-    "garantia": "0",
+    "garantia": "Sin garantía",
     "img_path": "IMAGENES DE PRODUCTOS/DDR4_8GB_2400MHZ.webp",
-    "specs_amigables": "",
+    "specs_amigables": "• Capacidad: 8 GB\n• Tipo: Memoria RAM DDR4 SODIMM para computadores portátiles / laptops\n• Frecuencia / Velocidad: 2400 MHz (PC4-2400T)\n• Formato: 260 pines SODIMM\n• Voltaje: 1.2V\n• Latencia: CL17\n• Ideal para repotenciar y acelerar portátiles de diversas marcas (HP, Lenovo, Dell, Asus, Acer).",
     "precio_directo_whatsapp": 225000,
     "precio_mercadolibre": 313000,
     "precio_facebook": 225000,
     "utilidad_directa": 45000.0,
     "margen_real_directo": 0.2,
-    "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *MEMORIA DDR4 8GB 2400T SAMSUNG PORTATIL – COTIZACIÓN*\n\n• Marca: Samsung\n• Producto 100% garantizado y probado en taller.\n\n• *Estado:* Equipo remanufacturado en perfecto estado estético, 100% probado en mostrador.\n• *Garantía:* 0\n\n💰 *Precio en efectivo o transferencia:* $225.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $313.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
-    "disponibilidad": "🟢 En Stock"
+    "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *MEMORIA RAM SAMSUNG 8GB DDR4 2400MHZ SODIMM PARA PORTÁTIL (PC4-2400T) – COTIZACIÓN*\n\n• Capacidad: 8 GB\n• Tipo: Memoria RAM DDR4 SODIMM para computadores portátiles / laptops\n• Frecuencia / Velocidad: 2400 MHz (PC4-2400T)\n• Formato: 260 pines SODIMM\n• Voltaje: 1.2V\n• Latencia: CL17\n\n• *Estado:* Equipo remanufacturado / usado (ensayado y funcional).\n• *Garantía:* Sin garantía\n• *Referencia / Modelo:* M471A1K43CB1-CRC\n\n💰 *Precio en efectivo o transferencia:* $225.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $313.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
+    "disponibilidad": "🟢 En Stock",
+    "notas": "100% testeada con MemTest86 en taller."
   }
 ]

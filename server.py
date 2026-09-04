@@ -34,7 +34,34 @@ HTML_INDEX_PATH = os.path.join(WORKSPACE_DIR, "index.html")
 HTML_CATALOG_PATH = os.path.join(WORKSPACE_DIR, "catalogo_max_tech.html")
 
 def rebuild_static_html(products):
-    items_json_str = json.dumps(products, ensure_ascii=False)
+    # Sanitize products for public customer catalog (strip sensitive internal cost & margin data)
+    public_products = []
+    for p in products:
+        pub = {
+            'sku': p.get('sku', ''),
+            'name': p.get('name', ''),
+            'category': p.get('category', ''),
+            'brand': p.get('brand', ''),
+            'part_number': p.get('part_number', ''),
+            'color': p.get('color', ''),
+            'barcode': p.get('barcode', ''),
+            'estado': p.get('estado', 'NUEVO'),
+            'disponibilidad': p.get('disponibilidad', '🟢 En Stock'),
+            'stock_actual': p.get('stock_actual', 0),
+            'historico_comprado': p.get('historico_comprado', 0),
+            'ubicacion': p.get('ubicacion', 'Taller'),
+            'garantia': p.get('garantia', 'Sin garantía'),
+            'img_path': p.get('img_path', ''),
+            'specs_amigables': p.get('specs_amigables', ''),
+            'notas': p.get('notas', ''),
+            'precio_directo_whatsapp': p.get('precio_directo_whatsapp', 0),
+            'precio_mercadolibre': p.get('precio_mercadolibre', 0),
+            'precio_facebook': p.get('precio_facebook', 0),
+            'wa_samuel_message': p.get('wa_samuel_message', '')
+        }
+        public_products.append(pub)
+
+    items_json_str = json.dumps(public_products, ensure_ascii=False)
     
     # Check if index.html exists, replace products in it
     if os.path.exists(HTML_INDEX_PATH):

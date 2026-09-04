@@ -63,7 +63,7 @@ def generate_wa_message(item):
     brand = (item.get('brand') or '').strip()
     specs = (item.get('specs_amigables') or '').strip()
     estado = (item.get('estado') or 'Nuevo').strip()
-    garantia = (item.get('garantia') or 'Garantía oficial').strip()
+    garantia = str(item.get('garantia') or '').strip()
     barcode = (item.get('barcode') or '').strip()
     part = (item.get('part_number') or '').strip()
     
@@ -78,35 +78,45 @@ def generate_wa_message(item):
     specs_lines = []
     if specs and specs != 'N/A':
         raw_bullets = [s.strip() for s in specs.replace('•', '\n').split('\n') if s.strip()]
-        for b in raw_bullets[:4]:
+        for b in raw_bullets[:6]:
             if not b.startswith('•'):
                 specs_lines.append(f"• {b}")
             else:
                 specs_lines.append(b)
     
     if not specs_lines:
-        specs_lines = [f"• Marca: {brand}", "• Producto 100% garantizado y probado en taller."]
+        if brand and brand.lower() not in ['genérica', 'generica', 'n/a', '']:
+            specs_lines.append(f"• Marca: {brand}")
         
     specs_text = "\n".join(specs_lines)
+    if specs_text:
+        specs_text = f"{specs_text}\n\n"
     
     ref_line = ""
     if barcode and barcode != 'N/A' and barcode != 'Sin código':
         ref_line = f"\n• *Código / EAN:* {barcode}"
-    elif part and part != 'N/A':
+    elif part and part != 'N/A' and part != '':
         ref_line = f"\n• *Referencia / Modelo:* {part}"
         
     estado_text = f"• *Estado:* {estado}"
     if 'reman' in estado.lower():
-        estado_text = f"• *Estado:* Equipo remanufacturado en perfecto estado estético, 100% probado en mostrador."
+        estado_text = f"• *Estado:* Equipo remanufacturado / usado (ensayado y funcional)."
     elif 'nuevo' in estado.lower():
         estado_text = f"• *Estado:* Producto nuevo, sellado en caja."
+        
+    # Handle warranty strictly according to field
+    garantia_clean = garantia.lower().strip()
+    if not garantia_clean or garantia_clean in ['0', 'sin garantia', 'sin garantía', 'no', 'n/a', 'ninguna', '0 meses', '0 dias', '0 días']:
+        garantia_text = "• *Garantía:* Sin garantía"
+    else:
+        garantia_text = f"• *Garantía:* {garantia}"
         
     msg = (
         f"¡Hola! Con gusto te paso los datos del equipo:\n\n"
         f"🏷️ {title_upper}\n\n"
-        f"{specs_text}\n\n"
+        f"{specs_text}"
         f"{estado_text}\n"
-        f"• *Garantía:* {garantia}{ref_line}\n\n"
+        f"{garantia_text}{ref_line}\n\n"
         f"💰 *Precio en efectivo o transferencia:* {format_cop(price_dir)} COP\n"
         f"💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* {format_cop(price_ml)} COP)\n\n"
         f"¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!"
