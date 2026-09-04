@@ -8,6 +8,14 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.utils import get_column_letter
 
 # Formatting utilities
+def safe_set_cell(ws, r, c, val=None):
+    if (r, c) in ws._cells and type(ws._cells[(r, c)]).__name__ == 'MergedCell':
+        del ws._cells[(r, c)]
+    cell = ws.cell(row=r, column=c)
+    if val is not None:
+        cell.value = val
+    return cell
+
 def roundup_price(val, to_nearest=1000):
     if not val or val <= 0:
         return 0
@@ -136,7 +144,7 @@ def sync_json_to_excel(products, excel_path):
     max_r = max(ws.max_row, 100)
     for r in range(4, max_r + 1):
         for c in range(1, 25):
-            ws.cell(row=r, column=c).value = None
+            safe_set_cell(ws, r, c).value = None
 
     # Styles
     font_body = Font(name='Segoe UI', size=9)
@@ -177,37 +185,37 @@ def sync_json_to_excel(products, excel_path):
         notas = p.get('notas', '')
 
         # Set values
-        ws.cell(row=r, column=1, value=sku).font = font_sku
-        ws.cell(row=r, column=2, value=name).font = font_bold
-        ws.cell(row=r, column=3, value=cat).font = font_body
-        ws.cell(row=r, column=4, value=brand).font = font_body
-        ws.cell(row=r, column=5, value=part).font = font_body
-        ws.cell(row=r, column=6, value=color).font = font_body
-        ws.cell(row=r, column=7, value=barcode).font = font_body
-        ws.cell(row=r, column=8, value=estado).font = font_body
-        ws.cell(row=r, column=9, value=disp).font = font_bold
-        ws.cell(row=r, column=10, value=stock).font = font_bold
-        ws.cell(row=r, column=11, value=hist_comp).font = font_body
-        ws.cell(row=r, column=12, value=ubic).font = font_body
-        ws.cell(row=r, column=13, value=costo).font = font_body
-        ws.cell(row=r, column=14, value=m_wa).font = font_body
+        safe_set_cell(ws, r, 1, sku).font = font_sku
+        safe_set_cell(ws, r, 2, name).font = font_bold
+        safe_set_cell(ws, r, 3, cat).font = font_body
+        safe_set_cell(ws, r, 4, brand).font = font_body
+        safe_set_cell(ws, r, 5, part).font = font_body
+        safe_set_cell(ws, r, 6, color).font = font_body
+        safe_set_cell(ws, r, 7, barcode).font = font_body
+        safe_set_cell(ws, r, 8, estado).font = font_body
+        safe_set_cell(ws, r, 9, disp).font = font_bold
+        safe_set_cell(ws, r, 10, stock).font = font_bold
+        safe_set_cell(ws, r, 11, hist_comp).font = font_body
+        safe_set_cell(ws, r, 12, ubic).font = font_body
+        safe_set_cell(ws, r, 13, costo).font = font_body
+        safe_set_cell(ws, r, 14, m_wa).font = font_body
         
         # Formulas for prices
-        ws.cell(row=r, column=15, value=f"=IF(N{r}<1, ROUNDUP(M{r}/(1-N{r}), -3), M{r})").font = font_bold
-        ws.cell(row=r, column=16, value=com_ml).font = font_body
-        ws.cell(row=r, column=17, value=f"=IF((1-N{r}-P{r})>0, ROUNDUP((M{r}+IF(O{r}>=90000,20000,0))/(1-N{r}-P{r}), -3), O{r})").font = font_body
-        ws.cell(row=r, column=18, value=f"=O{r}").font = font_body
-        ws.cell(row=r, column=19, value=f"=O{r}-M{r}").font = font_body
-        ws.cell(row=r, column=20, value=f"=IF(O{r}>0, (O{r}-M{r})/O{r}, 0)").font = font_body
+        safe_set_cell(ws, r, 15, f"=IF(N{r}<1, ROUNDUP(M{r}/(1-N{r}), -3), M{r})").font = font_bold
+        safe_set_cell(ws, r, 16, com_ml).font = font_body
+        safe_set_cell(ws, r, 17, f"=IF((1-N{r}-P{r})>0, ROUNDUP((M{r}+IF(O{r}>=90000,20000,0))/(1-N{r}-P{r}), -3), O{r})").font = font_body
+        safe_set_cell(ws, r, 18, f"=O{r}").font = font_body
+        safe_set_cell(ws, r, 19, f"=O{r}-M{r}").font = font_body
+        safe_set_cell(ws, r, 20, f"=IF(O{r}>0, (O{r}-M{r})/O{r}, 0)").font = font_body
         
-        ws.cell(row=r, column=21, value=garantia).font = font_body
-        ws.cell(row=r, column=22, value=img).font = font_body
-        ws.cell(row=r, column=23, value=specs).font = font_body
-        ws.cell(row=r, column=24, value=notas).font = font_body
+        safe_set_cell(ws, r, 21, garantia).font = font_body
+        safe_set_cell(ws, r, 22, img).font = font_body
+        safe_set_cell(ws, r, 23, specs).font = font_body
+        safe_set_cell(ws, r, 24, notas).font = font_body
 
         # Alignments & Number formats
         for c in range(1, 25):
-            cell = ws.cell(row=r, column=c)
+            cell = safe_set_cell(ws, r, c)
             cell.border = border_thin
             if c in [1, 5, 6, 7, 8, 9, 10, 11, 12, 21]:
                 cell.alignment = align_center
@@ -229,27 +237,27 @@ def sync_excel_to_json(excel_path, json_path):
     
     products = []
     for r in range(4, ws.max_row + 1):
-        sku = ws.cell(row=r, column=1).value
-        name = ws.cell(row=r, column=2).value
+        sku = safe_set_cell(ws, r, 1).value
+        name = safe_set_cell(ws, r, 2).value
         if not sku or not name:
             continue
             
-        cat = ws.cell(row=r, column=3).value or 'General'
-        brand = ws.cell(row=r, column=4).value or 'Genérica'
-        part = ws.cell(row=r, column=5).value or ''
-        color = ws.cell(row=r, column=6).value or ''
-        barcode = ws.cell(row=r, column=7).value or ''
-        estado = ws.cell(row=r, column=8).value or 'NUEVO'
-        stock = int(ws.cell(row=r, column=10).value or 0)
-        hist_comp = int(ws.cell(row=r, column=11).value or stock)
-        ubic = ws.cell(row=r, column=12).value or 'Taller'
-        costo = float(ws.cell(row=r, column=13).value or 0)
-        m_wa = float(ws.cell(row=r, column=14).value or 0.35)
-        com_ml = float(ws.cell(row=r, column=16).value or 0.16)
-        garantia = ws.cell(row=r, column=21).value or 'Garantía oficial'
-        img = ws.cell(row=r, column=22).value or ''
-        specs = ws.cell(row=r, column=23).value or ''
-        notas = ws.cell(row=r, column=24).value or ''
+        cat = safe_set_cell(ws, r, 3).value or 'General'
+        brand = safe_set_cell(ws, r, 4).value or 'Genérica'
+        part = safe_set_cell(ws, r, 5).value or ''
+        color = safe_set_cell(ws, r, 6).value or ''
+        barcode = safe_set_cell(ws, r, 7).value or ''
+        estado = safe_set_cell(ws, r, 8).value or 'NUEVO'
+        stock = int(safe_set_cell(ws, r, 10).value or 0)
+        hist_comp = int(safe_set_cell(ws, r, 11).value or stock)
+        ubic = safe_set_cell(ws, r, 12).value or 'Taller'
+        costo = float(safe_set_cell(ws, r, 13).value or 0)
+        m_wa = float(safe_set_cell(ws, r, 14).value or 0.35)
+        com_ml = float(safe_set_cell(ws, r, 16).value or 0.16)
+        garantia = safe_set_cell(ws, r, 21).value or 'Garantía oficial'
+        img = safe_set_cell(ws, r, 22).value or ''
+        specs = safe_set_cell(ws, r, 23).value or ''
+        notas = safe_set_cell(ws, r, 24).value or ''
 
         calc = calculate_prices(costo, m_wa, m_wa, com_ml)
         

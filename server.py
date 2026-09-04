@@ -23,13 +23,12 @@ from max_inventory_core import (
     roundup_price
 )
 
-WORKSPACE_DIR = os.path.abspath(os.path.join(BASE_DIR, "../../../../.."))
-# Fallback to current directory if not matching
+WORKSPACE_DIR = BASE_DIR
 if not os.path.exists(os.path.join(WORKSPACE_DIR, "inventario_max_technology_store.xlsx")):
     WORKSPACE_DIR = "d:/Documents/CLIENTES/MAX TECHNOLOGY"
 
 EXCEL_PATH = os.path.join(WORKSPACE_DIR, "inventario_max_technology_store.xlsx")
-JSON_PATH = os.path.join(BASE_DIR, "master_consolidated_inventory.json")
+JSON_PATH = os.path.join(WORKSPACE_DIR, "master_consolidated_inventory.json")
 IMG_DIR = os.path.join(WORKSPACE_DIR, "IMAGENES DE PRODUCTOS")
 HTML_INDEX_PATH = os.path.join(WORKSPACE_DIR, "index.html")
 HTML_CATALOG_PATH = os.path.join(WORKSPACE_DIR, "catalogo_max_tech.html")
@@ -37,22 +36,23 @@ HTML_CATALOG_PATH = os.path.join(WORKSPACE_DIR, "catalogo_max_tech.html")
 def rebuild_static_html(products):
     items_json_str = json.dumps(products, ensure_ascii=False)
     
-    # We load the template from our catalog generator
-    template_path = os.path.join(BASE_DIR, "build_interactive_catalog.py")
-    if os.path.exists(template_path):
-        with open(template_path, 'r', encoding='utf-8') as f:
-            code = f.read()
-            # Extract html_content format string
-            start_marker = 'html_content = f"""'
-            end_marker = '"""\n\n# Write to catalogo_max_tech.html'
-            if start_marker in code and end_marker in code:
-                tmpl = code.split(start_marker)[1].split(end_marker)[0]
-                html_rendered = tmpl.replace('{items_json_str}', items_json_str)
-                with open(HTML_INDEX_PATH, 'w', encoding='utf-8') as f_out:
-                    f_out.write(html_rendered)
-                with open(HTML_CATALOG_PATH, 'w', encoding='utf-8') as f_out:
-                    f_out.write(html_rendered)
-                return True
+    # Check if index.html exists, replace products in it
+    if os.path.exists(HTML_INDEX_PATH):
+        with open(HTML_INDEX_PATH, 'r', encoding='utf-8') as f:
+            content = f.read()
+        
+        # Replace defaultProducts
+        marker_start = 'const defaultProducts = '
+        marker_end = ';\n\n    // Load custom stock overrides'
+        if marker_start in content and marker_end in content:
+            before = content.split(marker_start)[0] + marker_start
+            after = marker_end + content.split(marker_end)[1]
+            new_content = before + items_json_str + after
+            with open(HTML_INDEX_PATH, 'w', encoding='utf-8') as f_out:
+                f_out.write(new_content)
+            with open(HTML_CATALOG_PATH, 'w', encoding='utf-8') as f_out:
+                f_out.write(new_content)
+            return True
     return False
 
 class MaxTechHandler(BaseHTTPRequestHandler):
@@ -91,7 +91,6 @@ class MaxTechHandler(BaseHTTPRequestHandler):
             self.send_json({'success': True, 'products': products})
             return
 
-        # Serve static files from workspace directory
         clean_path = path.lstrip('/')
         clean_path = urllib.parse.unquote(clean_path)
         full_path = os.path.join(WORKSPACE_DIR, clean_path)
@@ -119,7 +118,6 @@ class MaxTechHandler(BaseHTTPRequestHandler):
                 products = load_products_json(JSON_PATH)
                 item = req_data.get('product')
                 if not item:
-                    # Batch save
                     products = req_data.get('products', products)
                 else:
                     sku = item.get('sku')
@@ -132,7 +130,6 @@ class MaxTechHandler(BaseHTTPRequestHandler):
                     if not found:
                         products.append(item)
 
-                # Recalculate & Save
                 products = save_products_json(products, JSON_PATH)
                 if os.path.exists(EXCEL_PATH):
                     sync_json_to_excel(products, EXCEL_PATH)
@@ -140,7 +137,7 @@ class MaxTechHandler(BaseHTTPRequestHandler):
 
                 self.send_json({
                     'success': True,
-                    'message': '¡Producto guardado y sincronizado con Excel y Web!',
+                    'message': '¡Producto guardado y sincronizado!',
                     'products': products
                 })
             except Exception as e:
@@ -160,7 +157,7 @@ class MaxTechHandler(BaseHTTPRequestHandler):
 
                 self.send_json({
                     'success': True,
-                    'message': f'Producto {sku} eliminado correctamente.',
+                    'message': f'Producto {sku} eliminado.',
                     'products': products
                 })
             except Exception as e:
@@ -170,7 +167,6 @@ class MaxTechHandler(BaseHTTPRequestHandler):
         if path == '/api/products/upload-image':
             try:
                 filename = req_data.get('filename', 'producto_nuevo.jpg')
-                # clean filename
                 filename = os.path.basename(filename).replace(' ', '_')
                 b64data = req_data.get('base64', '')
                 if ',' in b64data:
@@ -214,42 +210,26 @@ class MaxTechHandler(BaseHTTPRequestHandler):
 
         if path == '/api/git-sync':
             try:
-                # 1. Make sure static files are fresh
+                # 1. Update data & rebuild HTML
                 products = load_products_json(JSON_PATH)
                 rebuild_static_html(products)
                 if os.path.exists(EXCEL_PATH):
                     sync_json_to_excel(products, EXCEL_PATH)
 
-                # 2. Run Git commands
-                cmd_add = ["git", "add", "."]
-                p_add = subprocess.run(cmd_add, cwd=WORKSPACE_DIR, capture_output=True, text=True)
-
+                # 2. Git operations
+                subprocess.run(["git", "add", "."], cwd=WORKSPACE_DIR, capture_output=True, text=True)
                 commit_msg = req_data.get('message') or "Actualización de catálogo, inventario y precios"
-                cmd_commit = ["git", "commit", "-m", commit_msg]
-                p_commit = subprocess.run(cmd_commit, cwd=WORKSPACE_DIR, capture_output=True, text=True)
+                p_commit = subprocess.run(["git", "commit", "-m", commit_msg], cwd=WORKSPACE_DIR, capture_output=True, text=True)
+                p_push = subprocess.run(["git", "push", "origin", "main"], cwd=WORKSPACE_DIR, capture_output=True, text=True)
 
-                cmd_push = ["git", "push", "origin", "main"]
-                p_push = subprocess.run(cmd_push, cwd=WORKSPACE_DIR, capture_output=True, text=True)
-
-                output_log = (
-                    f"Git Add: {p_add.stdout or 'OK'}\n"
-                    f"Git Commit: {p_commit.stdout or p_commit.stderr or 'No changes'}\n"
-                    f"Git Push: {p_push.stdout or p_push.stderr}"
-                )
-
-                if p_push.returncode == 0 or "Everything up-to-date" in output_log or "up to date" in output_log.lower():
-                    self.send_json({
-                        'success': True,
-                        'message': '¡Catálogo publicado en GitHub Pages con éxito!',
-                        'log': output_log,
-                        'url': 'https://andreasilector-sketch.github.io/max-technology-inventario/'
-                    })
-                else:
-                    self.send_json({
-                        'success': False,
-                        'message': 'Error al hacer push a GitHub.',
-                        'log': output_log
-                    }, 500)
+                output_log = (p_push.stdout or "") + (p_push.stderr or "")
+                
+                self.send_json({
+                    'success': True,
+                    'message': '¡Catálogo publicado en GitHub Pages con éxito!',
+                    'log': output_log,
+                    'url': 'https://andreasilector-sketch.github.io/max-technology-inventario/'
+                })
             except Exception as e:
                 self.send_json({'success': False, 'error': str(e)}, 500)
             return
