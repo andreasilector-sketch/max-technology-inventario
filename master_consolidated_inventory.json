@@ -1981,5 +1981,31 @@
     "margen_real_directo": 0.5,
     "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *MEMORIA RAM SAMSUNG 4GB DDR4 2400MHZ SODIMM PARA PORTÁTIL (PC4-2400T) – COTIZACIÓN*\n\n• Marca: Samsung\n\n• *Estado:* Equipo remanufacturado / usado (ensayado y funcional).\n• *Garantía:* Garantía oficial\n\n💰 *Precio en efectivo o transferencia:* $100.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $206.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
     "disponibilidad": "🟢 En Stock"
+  },
+  {
+    "sku": "JAL838L",
+    "name": "IMPRESORA TÉRMICA 2 EN 1 RECIBOS Y ETIQUETAS",
+    "category": "Tintas y Suministros",
+    "brand": "Jaltech",
+    "part_number": "",
+    "barcode": "",
+    "color": "Negra",
+    "estado": "NUEVO",
+    "costo_total_unitario": 370000,
+    "margen_whatsapp": 0.105,
+    "margen_mercadolibre": 0.105,
+    "comision_mercadolibre": 0.16,
+    "stock_actual": 1,
+    "ubicacion": "Taller",
+    "garantia": "Garantía oficial",
+    "img_path": "IMAGENES DE PRODUCTOS/impresora_pos_doblre_proposito_jaltech.jpeg",
+    "specs_amigables": "IMPRESORA TÉRMICA 2 EN 1 RECIBOS Y ETIQUETAS\n· Impresora de doble función\n· Modo de impresión de etiquetas\n· Modo de impresión de recibos\n· Alta velocidad\n· Puerto RJ45\n· Puerto USB\n· Amplia compatibilidad\n· Windows, Linux, Lac, Android\n· Impresora doble propósito:\n· Modo de impresión de etiquetas (cód. De barras)\n· Modo de impresión de recibos (facturación)\n· Tipo de impresión: térmica directa\n· Comando de impresión: TSPL (compatible con CPCL/ESC/POS)\n· Incluye software para elaboración de etiquetas\n· Tipo de papel: rollo spapel térmico y papel termoadhesivo\n· Ancho de papel: de 20mm a 82mm\n· Grosor de papel: de 0,06 a 0,19 mm\n· Diámetro de papel: 82mm\n· Ancho de impresión: 76mm\n· Tipos de rollo de papel: papel continuo, papel de etiquetas\n· Velocidad de impresión: 220mm/s en modo facturación,\n· 127mm/s en modo cód. De barras\n· Puertos: USB, RJ45 Lan y RJ11 para cajón monedero\n· Memoria: RAM 4mb, flash 4mb\n· Resolución: 203 ppp\n· Corte de papel: manual\n· Vida útil del cabezal de impresión: unos 100Km\n· Botón de encendido y apagado\n· Adaptador de energía: 24v/2,5a 3pin\n· Compatibilidad: Windows y Android en modo cód. De barras,\n· Win, linux, Android y mac en modo facturación\n· SDK: iOS/Android/Windows\n· Sensores en modo cód. De barras: sensor de temperatura del cabezal/\nfin del papel/cubierta abierta/sensor gap (espacios)\n· Sensores en modo facturación: sensor de temperatura del cabezal/fin\ndel papel/cubierta abierta\n· Temperatura de trabajo: 5 - 45 °c humedad: rh 10-80%\n· Dimensiones: 212x140x144mm\n· Peso: 0,94 Kg\n· Contenido de la caja: impresora, adaptador de papel, adaptador de\ncorriente, cable de poder, cable USB, CD, manual.\n· Compatibilidad de codificación: 1d: código 128 / ean1281 itf/ código\n39/ código 39c / código39s / código931 ean13 / ean13+21/ean13+5/ean8 / ean8+21 ean8+5 / codabar / upc-a /upca+2 /upca+5/upce /upce+21 upce+51 MSI / msic / plessey / itf14 / ean14. · 2d: pdf417/ código qr/ datamatrix.\nVolver",
+    "precio_directo_whatsapp": 414000,
+    "precio_mercadolibre": 531000,
+    "precio_facebook": 414000,
+    "utilidad_directa": 44000.0,
+    "margen_real_directo": 0.10628019323671498,
+    "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *IMPRESORA TÉRMICA 2 EN 1 RECIBOS Y ETIQUETAS – COTIZACIÓN*\n\n• IMPRESORA TÉRMICA 2 EN 1 RECIBOS Y ETIQUETAS\n• · Impresora de doble función\n• · Modo de impresión de etiquetas\n• · Modo de impresión de recibos\n• · Alta velocidad\n• · Puerto RJ45\n\n• *Estado:* Producto nuevo, sellado en caja.\n• *Garantía:* Garantía oficial\n\n💰 *Precio en efectivo o transferencia:* $414.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $531.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
+    "disponibilidad": "🟢 En Stock"
   }
 ]
