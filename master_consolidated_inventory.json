@@ -40,7 +40,7 @@
     "margen_whatsapp": 0.2042800259395512,
     "margen_mercadolibre": 0.2042800259395512,
     "comision_mercadolibre": 0.16,
-    "stock_actual": 3,
+    "stock_actual": 2,
     "ubicacion": "Vitrina Principal - POS",
     "garantia": "3 Meses de Garantía",
     "img_path": "IMAGENES DE PRODUCTOS/ZEBRA DS9208.jpg",
@@ -66,7 +66,7 @@
     "margen_whatsapp": 0.11764705882352944,
     "margen_mercadolibre": 0.11764705882352944,
     "comision_mercadolibre": 0.16,
-    "stock_actual": 1,
+    "stock_actual": 0,
     "ubicacion": "Vitrina Accesorios",
     "garantia": "12 Meses Logitech",
     "img_path": "IMAGENES DE PRODUCTOS/MOUSE M170 NEGRO LOGITECH.jpg",
@@ -77,7 +77,7 @@
     "utilidad_directa": 5295.0,
     "margen_real_directo": 0.11766666666666667,
     "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *MOUSE INALÁMBRICO LOGITECH M170 ÓPTICO 1000 DPI NEGRO – COTIZACIÓN*\n\n• Mouse inalámbrico compacto, supercómodo y confiable. Se conecta con un receptor USB miniatura con alcance de hasta 10 metros y su batería dura hasta 1 año completo con una sola pila.\n\n• *Estado:* Producto nuevo, sellado en caja.\n• *Garantía:* 12 Meses Logitech\n• *Código / EAN:* 097855124180\n\n💰 *Precio en efectivo o transferencia:* $45.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $55.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
-    "disponibilidad": "🟢 En Stock"
+    "disponibilidad": "⚪ Agotado"
   },
   {
     "sku": "MTS-0004",
@@ -92,7 +92,7 @@
     "margen_whatsapp": 0.2122888025113262,
     "margen_mercadolibre": 0.2122888025113262,
     "comision_mercadolibre": 0.16,
-    "stock_actual": 1,
+    "stock_actual": 0,
     "ubicacion": "Estante C - Redes",
     "garantia": "24 Meses (2 Años)",
     "img_path": "IMAGENES DE PRODUCTOS/Router C1200.jpeg",
@@ -103,7 +103,7 @@
     "utilidad_directa": 24414.0,
     "margen_real_directo": 0.21229565217391305,
     "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *ROUTER MERCUSYS MR30G AC1200 GIGABIT DUAL-BAND WI-FI (4 ANTENAS 5DBI) – COTIZACIÓN*\n\n• Router de alta velocidad con puertos Gigabit para aprovechar al 100% planes de fibra óptica de 100 a 300 Megas. Tiene 4 antenas de buen alcance y transmite en dos bandas (2.4GHz y 5GHz) para que navegues sin cortes.\n\n• *Estado:* Producto nuevo, sellado en caja.\n• *Garantía:* 24 Meses (2 Años)\n• *Código / EAN:* 849439000614\n\n💰 *Precio en efectivo o transferencia:* $115.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $177.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
-    "disponibilidad": "🟢 En Stock"
+    "disponibilidad": "⚪ Agotado"
   },
   {
     "sku": "MTS-0005",
@@ -248,7 +248,7 @@
     "margen_whatsapp": 0.15,
     "margen_mercadolibre": 0.15,
     "comision_mercadolibre": 0.16,
-    "stock_actual": 5,
+    "stock_actual": 3,
     "ubicacion": "Vitrina Accesorios",
     "garantia": "1 Mes",
     "img_path": "IMAGENES DE PRODUCTOS/FUNDA PARA PORTATIL.webp",
@@ -1226,7 +1226,7 @@
     "margen_whatsapp": 0.23244940745094256,
     "margen_mercadolibre": 0.23244940745094256,
     "comision_mercadolibre": 0.16,
-    "stock_actual": 1,
+    "stock_actual": 0,
     "ubicacion": "Caja 1 - Adaptadores",
     "garantia": "12 Meses",
     "img_path": "IMAGENES DE PRODUCTOS/Adaptador_TP-Link_UE330.png",
@@ -1237,7 +1237,7 @@
     "utilidad_directa": 26500.0,
     "margen_real_directo": 0.2324561403508772,
     "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *ADAPTADOR TP-LINK UE330 USB 3.0 A GIGABIT ETHERNET + HUB 3 PUERTOS USB – COTIZACIÓN*\n\n• Adaptador 2 en 1: te da un puerto de red Gigabit por cable (para cuando el Wi-Fi falla o tu portátil no tiene entrada de red RJ45) y al mismo tiempo te añade 3 puertos USB 3.0 rápidos para conectar memorias, mouse o teclado.\n\n• *Estado:* Producto nuevo, sellado en caja.\n• *Garantía:* 12 Meses\n• *Código / EAN:* 6935364091728\n\n💰 *Precio en efectivo o transferencia:* $114.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $177.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
-    "disponibilidad": "🟢 En Stock"
+    "disponibilidad": "⚪ Agotado"
   },
   {
     "sku": "MTS-0046",
@@ -1252,7 +1252,7 @@
     "margen_whatsapp": 0.39510790215804314,
     "margen_mercadolibre": 0.39510790215804314,
     "comision_mercadolibre": 0.17,
-    "stock_actual": 1,
+    "stock_actual": 2,
     "ubicacion": "Caja 1 - Adaptadores",
     "garantia": "36 Meses (3 Años)",
     "img_path": "IMAGENES DE PRODUCTOS/TL-WN725N.webp",
@@ -1995,7 +1995,7 @@
     "margen_whatsapp": 0.105,
     "margen_mercadolibre": 0.105,
     "comision_mercadolibre": 0.16,
-    "stock_actual": 1,
+    "stock_actual": 0,
     "ubicacion": "Taller",
     "garantia": "Garantía oficial",
     "img_path": "IMAGENES DE PRODUCTOS/impresora_pos_doblre_proposito_jaltech.jpeg",
@@ -2006,6 +2006,6 @@
     "utilidad_directa": 44000.0,
     "margen_real_directo": 0.10628019323671498,
     "wa_samuel_message": "¡Hola! Con gusto te paso los datos del equipo:\n\n🏷️ *IMPRESORA TÉRMICA 2 EN 1 RECIBOS Y ETIQUETAS – COTIZACIÓN*\n\n• IMPRESORA TÉRMICA 2 EN 1 RECIBOS Y ETIQUETAS\n• · Impresora de doble función\n• · Modo de impresión de etiquetas\n• · Modo de impresión de recibos\n• · Alta velocidad\n• · Puerto RJ45\n\n• *Estado:* Producto nuevo, sellado en caja.\n• *Garantía:* Garantía oficial\n\n💰 *Precio en efectivo o transferencia:* $414.000 COP\n💳 *(Opción con tarjeta a cuotas o por MercadoLibre:* $531.000 COP)\n\n¿Te gustaría que te lo separe o tienes alguna pregunta sobre el equipo? ¡Con gusto te ayudo!",
-    "disponibilidad": "🟢 En Stock"
+    "disponibilidad": "⚪ Agotado"
   }
 ]
